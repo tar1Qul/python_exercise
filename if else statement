@@ -1,0 +1,6 @@
+marcks = int(input("Enter marcks:"))
+
+if marcks>= 33:
+    print("Pass")
+else:
+    print("Fail")
