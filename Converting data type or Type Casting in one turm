@@ -1,0 +1,19 @@
+num1 = int (input("Enter first number: "))
+num2 = int (input("Enter second number: "))
+
+sum = num1 + num2
+sub = num1 - num2
+mult = num1 * num2
+dev = num1 / num2
+mod = num1 % num2
+expo = num1 ** num2
+
+print("\nResult\n-------------------")
+print("The sum is: ",sum)
+print("The sub is: ",sub)/Converting data type or Type Casting
+
+print("The mult is: ",mult)
+print("The dev is: ",dev)
+print("The mod is: ",mod)
+print("The expo is: ",expo)
+
