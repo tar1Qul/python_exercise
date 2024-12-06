@@ -1,9 +1,0 @@
-name = input("Enter your name: ")
-age = input("enter your age: ")
-cgpa = input("Enter your cgpa: ")
-
-print("\nStudent information\n-------------------------")
-print("Name: ")
-print("Age: ")
-print("CGPA: ")
-
