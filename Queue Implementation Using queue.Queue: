@@ -1,0 +1,12 @@
+from queue import Queue
+
+queue = Queue()
+
+queue.put(10)
+queue.put(20)
+queue.put(30)
+print("Queue size:", queue.qsize())  
+
+front = queue.get()
+print("Dequeued element:", front) 
+print("Queue size after dequeue:", queue.qsize())
