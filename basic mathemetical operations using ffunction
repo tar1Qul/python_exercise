@@ -1,0 +1,13 @@
+def mathemetical_operations(a,b):
+    sum = a+b
+    sub = a-b
+    mult = a*b
+    divd = a/b
+    mod = a%b
+    print("Addition: ",sum)
+    print("Subtraction: ",sub)
+    print("Multiplication: ",mult)
+    print("Division: ",divd)
+    print("Mod: ",mod)
+
+mathemetical_operations(10,2)
