@@ -2,8 +2,8 @@ def calculate_triangle_area(base,hight):
     return .5 * base * hight
 
 try:
-    base = float(input("Enter the base of the circle: "))
-    hight = float(input("Enter the hight of the circle: "))
+    base = float(input("Enter the base of the triangle: "))
+    hight = float(input("Enter the hight of the triangle: "))
 
     if base and hight < 0:
         print("Input cannot be negative. Please enter a positive number.")
