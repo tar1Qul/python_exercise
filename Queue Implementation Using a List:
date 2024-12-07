@@ -1,0 +1,14 @@
+queue = []  
+queue.append(10)
+queue.append(20)
+queue.append(30)
+print("Queue after enqueueing:", queue) 
+
+front = queue.pop(0)
+print("Dequeued element:", front)       
+print("Queue after dequeueing:", queue) 
+
+if queue:
+    print("Front element is:", queue[0])  
+else:
+    print("Queue is empty.")
