@@ -1,0 +1,8 @@
+list_number = int(input("Enter the number of items in the list: "))
+items = []
+
+for i in range(list_number):
+    item = input(f"Enter item {i + 1}: ")
+    items.append(item)
+
+print("The items in the list are:", items)
