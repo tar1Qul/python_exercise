@@ -1,0 +1,30 @@
+# Program to demonstrate various string methods in Python
+
+def display_string_methods(input_string):
+    print("\nString Methods Demonstration:\n")
+    print(f"Original String: {input_string}\n")
+
+    print(f"Capitalized: {input_string.capitalize()}")
+    print(f"Title Case: {input_string.title()}")
+    print(f"Upper Case: {input_string.upper()}")
+    print(f"Lower Case: {input_string.lower()}")
+    print(f"Swap Case: {input_string.swapcase()}")
+    print(f"Is Alphanumeric: {input_string.isalnum()}")
+    print(f"Is Alphabetic: {input_string.isalpha()}")
+    print(f"Is Digit: {input_string.isdigit()}")
+    print(f"Is Lowercase: {input_string.islower()}")
+    print(f"Is Uppercase: {input_string.isupper()}")
+    print(f"Is Title Case: {input_string.istitle()}")
+    print(f"Starts With 'A': {input_string.startswith('A')}")
+    print(f"Ends With 'Z': {input_string.endswith('Z')}")
+    print(f"Stripped (Whitespace Removed): {input_string.strip()}")
+    print(f"Split (By Spaces): {input_string.split()}")
+    print(f"Joined (With '-'): {'-'.join(input_string.split())}")
+    print(f"Find 'a' (Position of first 'a'): {input_string.find('a')}")
+    print(f"Replace 'a' with 'e': {input_string.replace('a', 'e')}")
+    print(f"Count of 'a': {input_string.count('a')}")
+
+# Main Program
+if __name__ == "__main__":
+    user_input = input("Enter a string: ")
+    display_string_methods(user_input)
