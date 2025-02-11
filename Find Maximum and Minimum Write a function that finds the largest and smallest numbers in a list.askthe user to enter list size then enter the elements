@@ -1,0 +1,28 @@
+def find_max_min(numbers):
+    if not numbers:
+        return None, None  
+    max_num = numbers[0]
+    min_num = numbers[0]
+
+    for num in numbers:
+        if num > max_num:
+            max_num = num
+        if num < min_num:
+            min_num = num
+
+    return max_num, min_num
+
+
+size = int(input("Enter the number of elements in the list: "))
+
+if size <= 0:
+    print("List size should be greater than zero.")
+else:
+    numbers = []
+    for i in range(size):
+        num = int(input(f"Enter element {i + 1}: "))
+        numbers.append(num)
+
+    maximum, minimum = find_max_min(numbers)
+    print(f"Maximum number: {maximum}, Minimum number: {minimum}")
+4
