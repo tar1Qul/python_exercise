@@ -1,0 +1,21 @@
+def is_sorted_ascending(numbers):
+    for i in range(len(numbers) - 1):
+        if numbers[i] > numbers[i + 1]:
+            return False
+    return True
+
+# Taking input from the user
+size = int(input("Enter the number of elements in the list: "))
+
+if size <= 0:
+    print("List size should be greater than zero.")
+else:
+    numbers = []
+    for i in range(size):
+        num = int(input(f"Enter element {i + 1}: "))
+        numbers.append(num)
+
+    if is_sorted_ascending(numbers):
+        print("The list is sorted in ascending order.")
+    else:
+        print("The list is NOT sorted in ascending order.")
