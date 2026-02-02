@@ -1,0 +1,68 @@
+//task1
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Feb  2 09:42:04 2026
+
+@author: Students
+"""
+
+
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+
+data = pd.read_csv(r"C:\Users\Students\Downloads\Automobile.csv")
+print (data.head())
+
+description = data.describe(include = "all")
+print (description)
+
+data.hist(figsize=(10,10))
+sns.pairplot(data)
+
+data= data.dropna()
+
+plt.figure(figsize=(20,20))
+c= data.corr()
+sns.heatmap(c,cmap="BrBG", annot=True)
+print(c)
+
+
+
+
+
+
+
+
+
+
+
+//task2
+import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
+from sklearn.preprocessing import StandardScaler
+from sklearn.model_selection import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
+from sklearn.metrics import classification_report, confusion_matrix
+
+data = pd.read_csv(r"C:\Users\Students\Downloads\prostate.csv", delimiter="\s+")
+print(data.head())
+
+data["train"] = data["train"].astype("category").cat.codes
+print(data.head())
+
+scaler = StandardScaler()
+scaled_features = scaler.fit_transform(data.drop("train", axis=1))
+
+X_train, X_test, y_train, y_test = train_test_split(
+    scaled_features, data["train"], test_size=0.2, random_state=32
+)
+
+knn = KNeighborsClassifier(n_neighbors=2)
+knn.fit(X_train, y_train)
+
+predicted = knn.predict(X_test)
+
+print(classification_report(y_test, predicted))
+print(confusion_matrix(y_test, predicted))
