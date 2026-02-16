@@ -1,0 +1,57 @@
+import numpy as np
+from sklearn.datasets import load_iris
+from sklearn.model_selection import train_test_split, cross_val_score
+from sklearn.pipeline import make_pipeline
+from sklearn.preprocessing import StandardScaler
+from sklearn.svm import SVC
+from sklearn.metrics import accuracy_score
+
+# Load data
+X, y = load_iris(return_X_y=True)
+d = X.shape[1]
+
+# Train-test split
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.3, random_state=42, stratify=y
+)
+
+def cost(subset):
+    if len(subset) == 0:
+        return 1.0
+    model = make_pipeline(StandardScaler(), SVC(kernel="rbf"))
+    acc = cross_val_score(model, X_train[:, subset], y_train, cv=5).mean()
+    return (1 - acc) + 0.01 * len(subset)  # error + size penalty
+
+def a_star():
+    open_list = [((), cost(()))]   # (subset, cost)
+    closed = set()
+    best_S, best_J = (), float("inf")
+
+    while open_list:
+        idx = np.argmin([item[1] for item in open_list])
+        S, J = open_list.pop(idx)
+
+        if S in closed:
+            continue
+        closed.add(S)
+
+        if J < best_J:
+            best_S, best_J = S, J
+
+        for j in range(d):
+            if j not in S:
+                S2 = tuple(sorted(S + (j,)))
+                if S2 not in closed:
+                    open_list.append((S2, cost(S2)))
+
+    return best_S
+
+best_subset = a_star()
+
+# Train final model
+final_model = make_pipeline(StandardScaler(), SVC(kernel="rbf"))
+final_model.fit(X_train[:, best_subset], y_train)
+y_pred = final_model.predict(X_test[:, best_subset])
+
+print("Selected feature indices:", best_subset)
+print("Test Accuracy:", accuracy_score(y_test, y_pred))
